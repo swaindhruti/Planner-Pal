@@ -1,5 +1,5 @@
 {
-  "name": "todo-backend",
+  "name": "@planner-pal/backend",
   "version": "1.0.0",
   "description": "Backend for todo application.",
   "main": "index.js",
@@ -11,6 +11,7 @@
   "dependencies": {
     "express": "^4.19.2",
     "mongoose": "^8.3.3",
+    "nodemon": "^3.1.0",
     "zod": "^3.23.6"
   }
 }

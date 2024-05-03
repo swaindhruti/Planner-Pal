@@ -17,7 +17,7 @@ app.post('/todo', async (req, res) => {
     await todo.create({
         title: createPayload.title,
         description: createPayload.description,
-        completed: false,
+        completed: createPayload.completed
     })
 
     res.json({
@@ -25,7 +25,10 @@ app.post('/todo', async (req, res) => {
     })
 });
 
-app.get('/todos' , (req, res) => {
+app.get('/todos' , async (req, res) => {
+    await todo.find({}).then((data) => {
+        res.json(data);
+    });
 });
 
 app.put('/completed' , async (req, res) => {
@@ -44,6 +47,10 @@ app.put('/completed' , async (req, res) => {
     });
 
     res.json({
-        msg : "Todo Updated"
+        msg:"Todo mark as completed"
     })
+});
+
+app.listen(3000, () => {
+    console.log("Server is running on port 3000");
 });
